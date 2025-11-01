@@ -34,8 +34,6 @@
 ## DBMS Components
 
 > ![Diagram of DBMS Components](images/components-diagram.png)
->
-> _Insert your diagram from Page 2 showing H/W, S/W, Data, Database Access Language, and Users._
 
 - **Procedures:** instructions to use a DBMS - setup, login, logout, backup, generate report
 - **Database Access Language:** language designed to write commands to CRUD in database
@@ -48,14 +46,10 @@
 - **2-tier DBMS:** Includes an Application layer between user and DBMS. An application interface known as ODBC (Open Database Connectivity) provides an API that allow client-side program to call DBMS. Most DBMS vendors provide ODBC. IT is secure and not exposed to end-user. Security can be improved through authentications at Application layer.
 
 > ![Diagram of 2-tier Architecture](images/2-tier-architecture.png)
->
-> _Insert your 2-tier diagram from Page 2 (DBMS, App Layer, User/Client)._
 
 - **3-tier DBMS:** Includes an additional Presentation / GUI layer between User/Client and Application layer. For end user, GUI is DB system, has no idea about App layer or DBMS. PHPMyAdmin is GUI of MySQL.
 
 > ![Diagram of 3-tier Architecture](images/3-tier-architecture.png)
->
-> _Insert your 3-tier diagram from Page 2 (DBMS, App Layer, GUI, User/Client)._
 
 ## Database Models
 
@@ -67,17 +61,13 @@ A database model defines the logical and structure of a database. It defines how
 
 It organizes data into a tree-like structure, with a single root to which all other data is linked. Starts from root, expands like a tree by adding child nodes to parent nodes. Child node has a single parent node. IBM's Information Management System (IMS) is based on this model. Less Flexible, doesn't support many-to-many relationships.
 
-> ![Diagram of Hierarchical Model](images/hierarchical-model)
->
-> _Insert your hierarchical model diagram from Page 3 (College, Department, Course, etc.)._
+> ![Diagram of Hierarchical Model](images/hierarchical-model.png)
 
 #### 2. Network Model
 
 It's an extension of hierarchical model. Data is organized more like a graph, and allowed to have more than one parent node. Data is more related as there are more relationships and thus faster and easier access. It has many-to-many relationships. Integrated Data Store (IDS) is based on this. Implementation is complex, difficult to maintain & modify.
 
 > ![Diagram of Network Model](images/network-model.png)
->
-> _Insert your network model diagram from Page 3 (A, B1, B2, C1, C2)._
 
 #### 3. Entity-Relationship Model
 
@@ -85,15 +75,11 @@ Here the relationships are created by dividing objects of interest into entities
 
 > ![Diagram of ER Model](images/er-model.png)
 
-> _Insert your E-R model diagram from Page 3 (Student entity)._
-
 #### 4. Relational Model
 
 The data is organized in 2D tables and the relationship is maintained by storing a common field. Basic structure is tables / information is stored in rows of tables. They can be normalized for efficiency and SQL can be used to access. Eg- Oracle, MySQL. It is simple, easy, popular and supports SQL.
 
 > ![Diagram of Relational Model](images/relational-model.png)
-
-> _Insert your relational model diagram from Page 4 (showing tables with A, B, C...)._
 
 #### 5. Object-oriented Model
 
