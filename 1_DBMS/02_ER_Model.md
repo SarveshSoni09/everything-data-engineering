@@ -13,45 +13,47 @@ Consider an example of School Management Software where we have to store Student
   - **Composite attribute:** It is made up of more than one simple attribute. Eg: student's address, made up of house no, street name, pin/zip code.
   - **Derived attribute:** It is not present in the whole database but can be derived using other attributes. Eg: average age of students in a class.
   - **Single and Multi-valued attributes:** Self-explanatory.
-  - **Keys:** This is an attribute or a set of attributes that uniquely identify an object of the entity. Eg: student id or roll-number.
-    - Super Key
-    - Candidate Key
-    - Primary Key
+- **Keys:** This is an attribute or a set of attributes that uniquely identify an object of the entity. Eg: student id or roll-number.
+  - Super Key
+  - Candidate Key
+  - Primary Key
 - **Relationships:** When an entity is related to another entity, they are said to have a relationship. Eg: A Class _has_ students, and thus Class and Student entities have a relationship. Can have degree 2 (binary relationship) or degree 3 (ternary relationship).
 
 ## Components of ER Diagram
 
 - **Entity:** Simple rectangular diagram.
 
-  > ![Diagram of ER Entity](images/entity.png)
+  <img src="images/entity.png" height="80">
 
 - **Relationships:** Rhombus to show relationships. A double rhombus is used for a weak relationship.
 
-  > ![Diagram of ER Relationships](images/relationship.png)
+  <img src="images/relationship.png" height="80">
 
 - **Weak entity:** A double rectangle represents it and is connected to another entity.
 
-  > ![Diagram of ER Weak Entity](images/weak_entity.png)
+  <img src="images/weak_entity.png" height="80">
 
 - **Attributes:** An ellipse represents attributes of an entity and is connected to the entity.
 
-  > ![Diagram of ER Attributes](images/attributes.png)
+  <img src="images/attributes.png" height="120">
 
   - **Key Attribute:** Represented by an ellipse with underlined text.
 
-  > ![Diagram of Key Attribute](images/key_attribute.png)
+    <img src="images/key_attribute.png" height="80">
 
   - **Derived Attribute:** Represented by a dashed ellipse.
 
-  > ![Diagram of Derived Attribute](images/derived_attribute.png)
+    <img src="images/derived_attribute.png" height="80">
 
   - **Multivalued Attribute:** Represented by a double ellipse.
 
-  > ![Diagram of Multivalued Attribute](images/multi-valued_attribute.png)
+    <img src="images/multi-valued_attribute.png" height="80">
 
   - **Composite Attribute:** Represented by an ellipse connected to other simple attribute ellipses.
 
-  > ![Diagram of Composite Attribute](images/composite_attribute.png)
+    <img src="images/composite_attribute.png" height="120">
+
+---
 
 ## Relationship Types
 
@@ -62,26 +64,28 @@ Consider an example of School Management Software where we have to store Student
   - Many to One
   - Many to Many
 
-  > ![Diagram of Binary Relationship Types](images/binary_relation_types.png)
+  <img src="images/binary_relation_types.png" height="100">
 
 - **Recursive Relationship**
 
-  > ![Diagram of Recursive Relationship](images/recursive_relation.png)
+  <img src="images/recursive_relation.png" height="100">
 
 - **Ternary Relationship**
 
-  > ![Diagram of Ternary Relationship](images/ternary_relation.png)
+  <img src="images/ternary_relation.png" height="100">
+
+---
 
 ## Enhanced ER Model
 
 - **Generalization:** It is a bottom-up approach in which two lower-level entities combine to form a higher-level entity. The higher-level entity can also combine with other lower-level entities to make a further higher-level entity.
 
-  > ![Diagram of Generalization](images/generalization.png)
+  <img src="images/generalization.png" height="150">
 
 - **Specialization:** It is the opposite of generalization. It is a top-down approach in which one higher-level entity can be broken down into two lower-level entities. A higher-level entity may not have any lower-level entity sets; it's possible.
 
-  > ![Diagram of Specialization](images/specialization.png)
+  <img src="images/specialization.png" height="150">
 
 - **Aggregation:** It is a process where the relation between two entities is treated as a single entity. In the example below, the relationship between Center and Course together is acting as an entity, which is in a relationship with another entity, Visitor. A visitor may not enquire about the center or course independently, but rather together.
 
-  > ![Diagram of Aggregation](images/aggregation.png)
+  <img src="images/aggregation.png" height="150">
