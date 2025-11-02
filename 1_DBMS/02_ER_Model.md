@@ -22,19 +22,36 @@ Consider an example of School Management Software where we have to store Student
 ## Components of ER Diagram
 
 - **Entity:** Simple rectangular diagram.
+
+  > ![Diagram of ER Entity](images/entity.png)
+
 - **Relationships:** Rhombus to show relationships. A double rhombus is used for a weak relationship.
+
+  > ![Diagram of ER Relationships](images/relationship.png)
+
 - **Weak entity:** A double rectangle represents it and is connected to another entity.
 
-  >
+  > ![Diagram of ER Weak Entity](images/weak_entity.png)
 
 - **Attributes:** An ellipse represents attributes of an entity and is connected to the entity.
 
-  >
+  > ![Diagram of ER Attributes](images/attributes.png)
 
   - **Key Attribute:** Represented by an ellipse with underlined text.
+
+  > ![Diagram of Key Attribute](images/key_attribute.png)
+
   - **Derived Attribute:** Represented by a dashed ellipse.
+
+  > ![Diagram of Derived Attribute](images/derived_attribute.png)
+
   - **Multivalued Attribute:** Represented by a double ellipse.
+
+  > ![Diagram of Multivalued Attribute](images/multi-valued_attribute.png)
+
   - **Composite Attribute:** Represented by an ellipse connected to other simple attribute ellipses.
+
+  > ![Diagram of Composite Attribute](images/composite_attribute.png)
 
 ## Relationship Types
 
@@ -45,26 +62,26 @@ Consider an example of School Management Software where we have to store Student
   - Many to One
   - Many to Many
 
-  >
+  > ![Diagram of Binary Relationship Types](images/binary_relation_types.png)
 
 - **Recursive Relationship**
 
-  >
+  > ![Diagram of Recursive Relationship](images/recursive_relation.png)
 
 - **Ternary Relationship**
 
-  >
+  > ![Diagram of Ternary Relationship](images/ternary_relation.png)
 
 ## Enhanced ER Model
 
 - **Generalization:** It is a bottom-up approach in which two lower-level entities combine to form a higher-level entity. The higher-level entity can also combine with other lower-level entities to make a further higher-level entity.
 
-  >
+  > ![Diagram of Generalization](images/generalization.png)
 
 - **Specialization:** It is the opposite of generalization. It is a top-down approach in which one higher-level entity can be broken down into two lower-level entities. A higher-level entity may not have any lower-level entity sets; it's possible.
 
-  >
+  > ![Diagram of Specialization](images/specialization.png)
 
 - **Aggregation:** It is a process where the relation between two entities is treated as a single entity. In the example below, the relationship between Center and Course together is acting as an entity, which is in a relationship with another entity, Visitor. A visitor may not enquire about the center or course independently, but rather together.
 
-  >
+  > ![Diagram of Aggregation](images/aggregation.png)
