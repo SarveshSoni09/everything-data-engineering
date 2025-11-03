@@ -28,7 +28,7 @@
 ## Disadvantages of DBMS
 
 - Complex
-- MySQL free, Others → expensive
+- MySQL → free, Others → expensive
 - Large in size
 
 ## DBMS Components
@@ -71,13 +71,13 @@ It's an extension of hierarchical model. Data is organized more like a graph, an
 
 #### 3. Entity-Relationship Model
 
-Here the relationships are created by dividing objects of interest into entities and their characteristics into attributes. E-R models are defined to represent the relationships in pictorial form. It is good to design Database and can represent data structures easily.
+Here the relationships are created by dividing objects of interest into entities and their characteristics into attributes. ER models are defined to represent the relationships in pictorial form. It is good to design Database and can represent data structures easily.
 
   <img src="images/er-model.png" height="150">
 
 #### 4. Relational Model
 
-The data is organized in 2D tables and the relationship is maintained by storing a common field. Basic structure is tables / information is stored in rows of tables. They can be normalized for efficiency and SQL can be used to access. Eg- Oracle, MySQL. It is simple, easy, popular and supports SQL.
+The data is organized in 2D tables and the relationship is maintained by storing a common field. Basic structure is tables and the information is stored in rows of tables. They can be normalized for efficiency and SQL can be used to access. Eg- Oracle, MySQL. It is simple, easy, popular and supports SQL.
 
   <img src="images/relational-model.png" height="150">
 
