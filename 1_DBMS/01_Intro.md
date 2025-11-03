@@ -33,7 +33,7 @@
 
 ## DBMS Components
 
-  <img src="images/components-diagram.png" height="100">
+  <img src="images/components-diagram.png" height="150">
 
 - **Procedures:** instructions to use a DBMS - setup, login, logout, backup, generate report
 - **Database Access Language:** language designed to write commands to CRUD in database
