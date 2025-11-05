@@ -213,7 +213,7 @@ WHERE country = "United States"
 ORDER BY latitude DESC;
 ```
 
-**Question 1:** List all the cities west of Chicago, ordered from west to east
+**Question 3:** List all the cities west of Chicago, ordered from west to east
 
 ```sql
 SELECT * FROM north_american_cities
@@ -221,7 +221,7 @@ WHERE longitude < -87.629798
 ORDER BY longitude;
 ```
 
-**Question 1:** List the two largest cities in Mexico by population
+**Question 4:** List the two largest cities in Mexico by population
 
 ```sql
 SELECT * FROM north_american_cities
@@ -230,7 +230,7 @@ ORDER BY population DESC
 LIMIT 2;
 ```
 
-**Question 1:** List the third and fourth largest cities by population in he United States and their population
+**Question 5:** List the third and fourth largest cities by population in he United States and their population
 
 ```sql
 SELECT * FROM north_american_cities
