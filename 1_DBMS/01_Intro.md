@@ -85,7 +85,7 @@ The data is organized in 2D tables and the relationship is maintained by storing
 
 Data is stored in the form of objects. Behavior is similar to OOP. Mongo DB is object oriented and also a NoSQL database. It is not mature enough as Relational but can easily support complex DS and support features like inheritance, encapsulation, etc.
 
-#### 6. NOSQL Model
+#### 6. NoSQL Model
 
 It supports an unstructured style of storing data. Data is stored as documents which look more like JSON strings or Key-value based Object representations. It provides flexible schema and features like Indexing, relationships, etc. The support for data querying is limited but it is scalable, has high performance and can handle large volumes. It is well-suited for Big data applications, realtime analytics and Content Management Systems (CMS), etc.
 

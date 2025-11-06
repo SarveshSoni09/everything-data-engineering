@@ -8,7 +8,7 @@ Keys are attributes or sets of attributes that uniquely identify data in a table
 
   - _Example:_ In a `Student` table with `(StudentID, StudentEmail, Name)`, the sets `{StudentID}`, `{StudentEmail}`, `{StudentID, Name}`, and `{StudentID, StudentEmail, Name}` are all super keys.
 
-- **Candidate Key:** A _minimal_ super key. This is a super key that has no redundant attributes (i.m., if you removed any attribute from the key, it would no longer be a unique identifier). A table can have multiple candidate keys.
+- **Candidate Key:** A _minimal_ super key. This is a super key that has no redundant attributes (i.e., if you removed any attribute from the key, it would no longer be a unique identifier). A table can have multiple candidate keys.
 
   - _Example:_ From the super keys above, `{StudentID}` and `{StudentEmail}` are candidate keys. `{StudentID, Name}` is not, because `Name` is redundant.
 
