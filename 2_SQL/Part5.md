@@ -55,3 +55,38 @@ FROM mytable
 ```
 
 ### Exercise
+
+**Question 1:** Write a query that includes a column that is flagged "yes" when a player is from California, and sort the results with those players first
+
+```sql
+SELECT player_name,
+   CASE WHEN state = 'CA'
+   THEN 'yes' ELSE 'no'
+   END AS from_california
+FROM pachiko.benn_college_football_players
+ORDER BY from_california DESC
+LIMIT 100;
+```
+
+**Question 2:** Write a query that includes players' names and a column that classifies them into four categories based on height.
+
+```sql
+SELECT player_name, height,
+CASE WHEN height < 55 THEN 'below 55'
+    WHEN height < 65 THEN '55-65'
+    WHEN height < 75 THEN '65-75'
+    ELSE 'over 75'
+    END AS height_category
+FROM pachiko.benn_college_football_players
+LIMIT 100;
+```
+
+**Question 3:** Write a query that selects all columns from benn.college_football_players and adds an additional column that displays the player's name if that player is a junior or senior.
+
+```sql
+SELECT *,
+CASE WHEN year IN ('JR', 'SR')
+     THEN player_name ELSE NULL
+     END AS jr_sr_player
+FROM pachiko.benn_college_football_players;
+```
