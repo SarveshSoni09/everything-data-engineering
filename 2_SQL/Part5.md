@@ -1,4 +1,4 @@
-# Advanced SQL Implementations
+# Advanced SQL Implementations 1
 
 ## `CASE` Statement
 
@@ -89,4 +89,71 @@ CASE WHEN year IN ('JR', 'SR')
      THEN player_name ELSE NULL
      END AS jr_sr_player
 FROM pachiko.benn_college_football_players;
+```
+
+**Question 4:** Write a query that counts the number of 300lb+ players for each of the following regions: West Coast (CA, OR, WA), Texas, and Other (everywhere else).
+
+```sql
+SELECT
+  CASE
+    WHEN state IN ('CA', 'OR', 'WA') THEN 'West Coast'
+    WHEN state = 'TX' THEN 'Texas'
+    ELSE 'Other'
+    END AS player_region,
+  COUNT(*)
+FROM pachiko.benn_college_football_players
+WHERE weight > 300
+GROUP BY player_region;
+```
+
+**Question 5:** Write a query that calculates the combined weight of all underclass players (FR/SO) in California as well as the combined weight of all upperclass players (JR/SR) in California.
+
+```sql
+SELECT
+  CASE
+    WHEN year in ('FR', 'SO') THEN 'underclass'
+    WHEN year in ('JR', 'SR') THEN 'upperclass'
+    ELSE NULL
+    END AS player_class,
+  SUM(weight) AS combined_weight
+FROM pachiko.benn_college_football_players
+WHERE state = 'CA'
+GROUP BY player_class;
+```
+
+**Question 6:** Write a query that displays the number of players in each state, with FR, SO, JR, and SR players in separate columns and another column for the total number of players. Order results such that states with the most players come first.
+
+```sql
+SELECT
+  state,
+  COUNT(CASE WHEN year = 'FR' THEN 1 ELSE NULL END) AS fr_count,
+  COUNT(CASE WHEN year = 'SO' THEN 1 ELSE NULL END) AS so_count,
+  COUNT(CASE WHEN year = 'JR' THEN 1 ELSE NULL END) AS jr_count,
+  COUNT(CASE WHEN year = 'SR' THEN 1 ELSE NULL END) AS sr_count,
+  COUNT(*) AS total_count
+FROM pachiko.benn_college_football_players
+GROUP BY state
+ORDER BY total_count DESC
+```
+
+**Question 7:** Write a query that shows the number of players at schools with names that start with A through M, and the number at schools with names starting with N - Z.
+
+```sql
+SELECT CASE WHEN LEFT(school_name, 1) BETWEEN 'A' AND 'M' THEN 'schools_a-m'
+            WHEN LEFT(school_name, 1) BETWEEN 'N' AND 'Z' THEN 'schools_n-z'
+            ELSE NULL END AS school_name_group,
+  COUNT(*)
+FROM pachiko.benn_college_football_players
+GROUP BY school_name_group;
+```
+
+OR
+
+```sql
+SELECT CASE WHEN school_name < 'n' THEN 'A-M'
+            WHEN school_name >= 'n' THEN 'N-Z'
+            ELSE NULL END AS school_name_group,
+       COUNT(1) AS players
+  FROM benn.college_football_players
+ GROUP BY 1
 ```
