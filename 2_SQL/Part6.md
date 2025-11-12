@@ -1,4 +1,4 @@
-# Advanced SQL Implementations 2
+# Intermediate SQL Implementations 2
 
 Most SQL functions are specific to certain data types, but using a particular function will often convert the data to the appropriate type. Functions like `LEFT`, `RIGHT`, and `TRIM` are used to select certain elements of strings, but they can also be applied to numbers or dates, treating them as strings for the purpose of the function.
 

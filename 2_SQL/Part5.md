@@ -1,4 +1,4 @@
-# Advanced SQL Implementations 1
+# Intermediate SQL Implementations 1
 
 ## `CASE` Statement
 
