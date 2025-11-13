@@ -18,7 +18,7 @@ SELECT sub.*
 
 First, the database runs the "inner query"—the part between the parentheses. Once the inner query runs, the outer query will run using the results from the inner query as its underlying table. Subqueries are required to have names, which are added after parentheses the same way you would add an alias to a normal table. In this case, we've used the name "sub."
 
-**Question 1:**
+**Question 1:** Write a query that selects all Warrant Arrests from the `tutorial.sf_crime_incidents_2014_01 dataset`, then wrap it in an outer query that only displays unresolved incidents.
 
 ```sql
 SELECT sub.*
@@ -49,7 +49,7 @@ SELECT LEFT(sub.date, 2) AS cleaned_month,
  ORDER BY 1,2
 ```
 
-**Question 2:** Write a query that displays the average number of monthly incidents for each category. Hint: use tutorial.sf_crime_incidents_cleandate to make your life a little easier.
+**Question 2:** Write a query that displays the average number of monthly incidents for each category. Hint: use `tutorial.sf_crime_incidents_cleandate` to make your life a little easier.
 
 ```sql
 SELECT sub.category, AVG(sub.incidents) AS avg_monthly_count
@@ -134,7 +134,7 @@ RIGHT JOIN (SELECT category, COUNT(incidnt_num) AS incidents
 ON incidents.category = sub.category
 ```
 
-** Question 4:** Write a query that counts the number of companies founded and acquired by quarter starting in Q1 2012. Create the aggregations in two separate queries, then join them.
+**Question 4:** Write a query that counts the number of companies founded and acquired by quarter starting in Q1 2012. Create the aggregations in two separate queries, then join them.
 
 ```sql
 SELECT COALESCE(acquisitions.quarter, investments.quarter) AS quarter,
@@ -192,7 +192,7 @@ GROUP BY 1
 ORDER BY 2 DESC
 ```
 
-**Question 6: ** Write a query that does the same thing as in the previous problem, except only for companies that are still operating. Hint: operating status is in tutorial.crunchbase_companies.
+**Question 6:** Write a query that does the same thing as in the previous problem, except only for companies that are still operating. Hint: operating status is in tutorial.crunchbase_companies.
 
 ```sql
 SELECT investments.investor_name,
