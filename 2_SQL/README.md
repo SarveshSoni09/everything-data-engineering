@@ -6,11 +6,11 @@ SQL, or Structured Query Language, is a language designed to allow both technica
 
 SQL databases represent a collection of related (two-dimensional) tables. Each table is similar to an Excel spreadsheet, with a fixed number of named columns (the attributes or properties of the table) and any number of rows of data.
 
-## Course Structure
+## Structure
 
-This SQL tutorial is divided into **9 parts**, organized into three progressive levels:
+Learning of SQL is divided into **9 parts**, organized into three progressive levels:
 
-### 📚 Basic SQL (Parts 1-3)
+### Basic SQL (Parts 1-3)
 
 **Part 1: SELECT Queries and Filtering**
 
@@ -34,7 +34,7 @@ This SQL tutorial is divided into **9 parts**, organized into three progressive 
 - `GROUP BY` clause for grouped aggregations
 - `HAVING` clause for filtering grouped results
 
-### 🔧 Intermediate SQL (Parts 4-6)
+### Intermediate SQL (Parts 4-6)
 
 **Part 4: Query Execution Order**
 
@@ -58,7 +58,7 @@ This SQL tutorial is divided into **9 parts**, organized into three progressive 
 - `COALESCE` function for handling NULL values
 - Converting between string and date formats
 
-### 🚀 Advanced SQL (Parts 7-9)
+### Advanced SQL (Parts 7-9)
 
 **Part 7: Subqueries**
 
