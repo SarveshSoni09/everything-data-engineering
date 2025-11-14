@@ -1,4 +1,4 @@
-# Advanced SQL Implementations 1
+# Advanced SQL - Part 7
 
 ## SQL Subqueries
 

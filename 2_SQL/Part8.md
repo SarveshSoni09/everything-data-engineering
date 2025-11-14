@@ -1,4 +1,4 @@
-# Advanced SQL Implementations 2
+# Advanced SQL - Part 8
 
 ## SQL Window Functions
 

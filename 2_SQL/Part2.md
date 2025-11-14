@@ -1,3 +1,5 @@
+# Basic SQL - Part 2
+
 ## JOIN or INNER JOIN Query
 
 This queries are used to join two or more tables to get complex and more informative data that was normalized for Database efficiency. First we will look into `JOIN` or `INNER JOIN` which are both technically same in `SQL` but we can mention them separately just to make it more easy to understand. What this `JOIN / INNER JOIN` will do is it will merge he rows from two tables based upon the equality of a common Attribute `(Primary Key)`.

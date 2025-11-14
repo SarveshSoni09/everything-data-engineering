@@ -1,3 +1,5 @@
+# Basic SQL - Part 3
+
 ## Queries with Expressions
 
 Expressions can be used to write more complex logic on column values in a query. These expressions can use mathematical and string functions along with basic arithmetic to transform values when query is executed.

@@ -1,3 +1,5 @@
+# Basic SQL - Part 1
+
 ## SELECT Query
 
 This is a very simple query where we need to write `SELECT` statements to retrieve data from a SQL Database

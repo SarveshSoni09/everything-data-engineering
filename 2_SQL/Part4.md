@@ -1,3 +1,5 @@
+# Intermediate SQL - Part 4
+
 ## Order of execution of a SQL Query
 
 1. `FROM` and `JOIN`s
