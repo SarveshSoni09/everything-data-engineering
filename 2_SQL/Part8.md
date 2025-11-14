@@ -138,7 +138,7 @@ SELECT * FROM (
 WHERE sub.rank < 6
 ```
 
-### `NTILE`
+### `NTILE()`
 
 You can use window functions to identify what percentile (or quartile, or any other subdivision) a given row falls into. The syntax is NTILE(_# of buckets_). In this case, ORDER BY determines which column to use to determine the ntile
 
@@ -175,4 +175,55 @@ SELECT duration_seconds,
  ORDER BY duration_seconds DESC
 ```
 
-### `LAG` and `LEAD`
+### `LAG()` and `LEAD()`
+
+Sometimes we need to return a value from a different row relative to the current row. For example, we might need to compare rows to preceding or following rows, especially in an ordered dataset. In these cases, `LAG()` and `LEAD()` can be used to create columns that pull values from other rows.
+
+**Examples:**
+
+```sql
+SELECT start_terminal,
+       duration_seconds,
+       duration_seconds -LAG(duration_seconds, 1) OVER
+         (PARTITION BY start_terminal ORDER BY duration_seconds)
+         AS difference
+  FROM tutorial.dc_bikeshare_q1_2012
+ WHERE start_time < '2012-01-08'
+ ORDER BY start_terminal, duration_seconds
+```
+
+The first row of the difference column is null because there is no previous row from which to pull. It can be wrapped it in an outer query to remove nulls.
+
+```sql
+SELECT *
+  FROM (
+    SELECT start_terminal,
+           duration_seconds,
+           duration_seconds -LAG(duration_seconds, 1) OVER
+             (PARTITION BY start_terminal ORDER BY duration_seconds)
+             AS difference
+      FROM tutorial.dc_bikeshare_q1_2012
+     WHERE start_time < '2012-01-08'
+     ORDER BY start_terminal, duration_seconds
+       ) sub
+ WHERE sub.difference IS NOT NULL
+```
+
+### Defining a Window Alias
+
+iIf several window functions are to be written in the same query, using the same window, an alias can be created to make things easy. Consider the `NTILE` example from before. It can be rewritten as:
+
+```sql
+SELECT start_terminal,
+       duration_seconds,
+       NTILE(4) OVER ntile_window AS quartile,
+       NTILE(5) OVER ntile_window AS quintile,
+       NTILE(100) OVER ntile_window AS percentile
+  FROM tutorial.dc_bikeshare_q1_2012
+ WHERE start_time < '2012-01-08'
+WINDOW ntile_window AS
+         (PARTITION BY start_terminal ORDER BY duration_seconds)
+ ORDER BY start_terminal, duration_seconds
+```
+
+**NOTE:** The `WINDOW` clause, if included, should always come after the `WHERE` clause.
