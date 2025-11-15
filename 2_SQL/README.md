@@ -88,19 +88,6 @@ Learning of SQL is divided into **9 parts**, organized into three progressive le
 - Pivoting columns to rows using `CROSS JOIN`
 - Best practices for query optimization
 
-## Learning Path
-
-1. **Start with Basic SQL (Parts 1-3)**: Master the fundamentals of querying, filtering, joining tables, and basic aggregations.
-2. **Progress to Intermediate SQL (Parts 4-6)**: Understand query execution, conditional logic, and data manipulation functions.
-3. **Advance to Advanced SQL (Parts 7-9)**: Learn complex query patterns, window functions, and performance optimization.
-
-Each part includes:
-
-- Clear explanations of concepts
-- Syntax examples
-- Practical exercises with solutions
-- Real-world use cases
-
 ## Content Credits
 
 This tutorial content has been adapted and compiled from the following excellent resources:
