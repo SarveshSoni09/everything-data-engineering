@@ -1,0 +1,72 @@
+# 1. Introduction
+
+## What is Apache Spark?
+
+Imagine we have a Python script that reads a CSV file and calculates the average sales.
+
+- **Standard Python (Pandas):** The computer's RAM (memory) holds the data, and the CPU calculates the average. If the file is 500GB, your laptop crashes.
+
+- **Apache Spark:** It takes that 500GB file and slices it into smaller chunks. It distributes those chunks across 10, 20, or 100 computers. They all calculate a piece of the average at the same time, and Spark combines the results.
+
+**Key Definition:** Spark is a distributed computing engine. It allows us to write code (in Python, SQL, Scala, or Java) that treats a massive cluster of computers as if it were just one single powerful machine.
+
+### Features
+
+- **In-Memory Processing:** Unlike older tools (like Hadoop MapReduce) that constantly saved data to the hard drive, Spark tries to keep data in RAM (memory). This makes it up to 100x faster.
+
+- **Unified Engine:** You can use it for SQL queries, streaming data, machine learning, and graph processing all in one place.
+
+## Spark Architecture
+
+To understand how Spark works, we have to look at how it manages all those computers working together.
+
+1. **The Driver Program (The Brains)**  
+   The Driver is the process that runs the main() function of your application. It is the "command center."
+
+   - **Responsibilities:**
+
+     - It converts your Python code into a workflow (DAG).
+     - It breaks that workflow into small Tasks.
+     - It collects the final results to show you.
+
+   - **_Note:_** If you run a script in a Jupyter Notebook or PySpark shell, that is the Driver.
+
+2. The Cluster Manager (The Resource Allocator)
+   The Driver cannot just grab computers; it has to ask permission. The Cluster Manager controls the physical resources (CPU and RAM) of the entire network.
+
+   - **Responsibilities:**
+
+     - It receives a request from the Driver: "I need 10GB of RAM and 4 CPUs."
+     - It checks the network to see who is free and allocates those resources.
+
+   - Examples: YARN (Hadoop), Kubernetes, or Mesos are all types of Cluster Managers.
+
+3. **The Worker Node (The Hardware)**
+   These are the actual server machines (computers) in the cluster.
+
+   - **Responsibilities:**
+     - They provide the raw hardware (CPU, Memory, Storage) to do the work.
+     - They report their status back to the Cluster Manager ("I am healthy/I am busy").
+
+4. **The Executor (The Muscle)**
+   This is the most critical concept to grasp. The Worker Node is the computer, but the Executor is the application running inside that computer.
+
+   - **Responsibilities:**
+
+     - The Executor is a process launched on a Worker Node specifically for your application.
+     - It runs the Tasks sent by the Driver.
+     - It stores data in memory (RAM) or on the disk.
+
+   - **Relationship:** One Worker Node can host multiple Executors (if the computer is powerful enough).
+
+### Workflow
+
+1. **The Driver** looks at your code and creates a plan. It asks the **Cluster Manager** for resources.
+
+2. **The Cluster Manager** launches **Executors** on the available **Worker Nodes**.
+
+3. **The Driver** sends specific Tasks (code + data) directly to the **Executors**.
+
+4. **The Executors** do the math (filtering, aggregating) and send the results back to the **Driver**.
+
+5. **The Driver** compiles the results and displays them to you.
