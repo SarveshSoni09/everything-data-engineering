@@ -18,7 +18,29 @@ Imagine we have a Python script that reads a CSV file and calculates the average
 
 ## Spark Architecture
 
+Spark Architecture depends upon two abstractions
+
+### 1. RDD (Resilient Distributed Dataset)
+
+The RDD is the fundamental building block of Spark, though in modern PySpark, we will only work with DataFrames (which are built on top of RDDs).
+
+- **Dataset:** It is a collection of data elements (like a list in Python).
+
+- **Distributed:** The data is split into partitions and spread across the various Worker Nodes in the cluster.
+
+- **Resilient:** If a partition of data is lost on one worker (e.g., the worker node crashes), Spark knows the original steps needed to recreate that partition from the original source data. This is achieved through the Lineage or history of transformations.
+
+### 2. DAG (Directed Acyclic Graph)
+
+The `DAG` is the blueprint or roadmap that Spark builds during the lazy evaluation phase
+
+- **Directed:** The operations have a specific, one-way flow (A -> B -> C).
+- **Acyclic:** There are no loops or backward steps. Once a transformation is done, it's done.
+- **Graph:** It's a set of connected transformation steps that lead to the final result.
+
 To understand how Spark works, we have to look at how it manages all those computers working together.
+
+<img src="images/spark_architecture.png" height="200">
 
 1. **The Driver Program (The Brains)**  
    The Driver is the process that runs the main() function of our application. It is the "command center."
@@ -112,3 +134,53 @@ To understand how Spark works, we have to look at how it manages all those compu
    - **What it does:** A specialized engine for processing graphs (not bar charts, but network graphs like social networks).
 
    - **Use Case:** Calculating "PageRank" for Google or finding the shortest path between two cities in a logistics network.
+
+## Lazy Evaluation
+
+**Lazy Evaluation** is the secret to Spark's speed and efficiency. Spark doesn't execute any work immediately when we write a transformation, it waits until the very last moment.
+
+**Transformations:** These are operations like `filter()`, `map()`, or `select()`. When we write them, Spark just records the instruction (or adds it to the DAG). No data moves.
+
+**Actions:** These are operations like `count()`, `collect()`, or `write()`. These operations force Spark to finally execute all the recorded transformations.
+
+Example:
+
+- Consider that Spark is provided with a set of 4 **Transformations**: `transformationA`, `transformationB`, `transformationC`, `transformationD`.
+- Spark receives this information and does not start transforming data as per the provided transformations.
+- It stores this information into a **Logical Plan** developed in the form of **`DAG`**.
+- This `DAG` optimizes the execution order of transformations using this Logical Plan and stores it until all the transformations keep on coming.
+- Once Spark receives an **Action**, that is when it will follow the `DAG` and execute all **Transformations**.
+
+This "laziness" allows Spark to optimize the entire workflow before execution, eliminating unnecessary steps and planning the most efficient process.
+
+When an **Action** is called, the **Driver** uses the `DAG` to figure out the most efficient way to break down the total work into **Jobs**, **Stages**, and **Tasks**.
+
+## Spark Jobs, Stages and Tasks
+
+### Spark Job
+
+A **Job** is created every time an **Action** is called. It represents the complete set of work needed to compute that action, traversing the entire `DAG`.
+
+`One Action = One Job.`
+
+### Spark Stages
+
+A **Job** is broken down into one or more **Stages**. The division between Stages is determined by the required data movement across the cluster, specifically an operation called a **Shuffle**.
+
+- **Narrow Transformation (No Shuffle)**: Operations like `map()` or `filter()` where one partition of input data results in one partition of output data. These can happen in the same Stage.
+
+- **Wide Transformation (Shuffle Required)**: Operations like `groupByKey()` or `join()` that require data from different partitions to be exchanged between **Worker Nodes**. This is expensive and forces a new Stage.
+
+- Stages are separated by Shuffle boundaries.
+
+### Spark Tasks
+
+A Task is the smallest unit of work sent to an Executor.
+
+- The **Driver** breaks each Stage into a set of **Tasks**.
+
+- Typically, there is one **Task** created for every data **Partition**.
+
+- An **Executor** runs one or more Tasks concurrently, applying the necessary transformations defined by that Stage on its local chunk of data.
+
+- The Task is the actual execution code that runs on the **Worker Node**.
